@@ -12,7 +12,7 @@ class RussianPamirDictionaryApp extends StatelessWidget {
         brightness: Brightness.light, // Светлая тема
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.blue,   // Цвет темы
+        primarySwatch: Colors.blue,
         brightness: Brightness.dark, // Темная тема
       ),
       home: DictionaryHomePage(),
@@ -35,14 +35,18 @@ class DictionaryHomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-                               //Меню
+      //Меню
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-
+                  image: const DecorationImage(
+                    image: NetworkImage('https://storage.theoryandpractice.ru/tnp/uploads/image_block/000/063/747/image/base_692b890d23.jpg'),
+                    fit: BoxFit.cover,
+                ),
+                color: Colors.blue,
               ),
               child: Text(
                 'Меню',
