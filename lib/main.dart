@@ -61,7 +61,10 @@ class DictionaryHomePage extends StatelessWidget {
               iconColor: Colors.blue,
               title: Text('Памирские Языки'),
               onTap: () {
-                // Открыть страницу Памирские языки
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PamirLanguage()),    // Открыть страницу Памирские языки
+                );
               },
             ),
             ListTile(
@@ -69,7 +72,10 @@ class DictionaryHomePage extends StatelessWidget {
               iconColor: Colors.blue,
               title: Text('Алфавит'),
               onTap: () {
-                // Открыть История ГБАО
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Alphabet()),    // Открыть страница Алфавит
+                );
               },
             ),
             Divider(height: 0),
@@ -138,119 +144,41 @@ class DictionaryHomePage extends StatelessWidget {
             subtitle: Text("Чернокожий"),
             trailing: Icon(Icons.favorite_rounded),
           ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Абира, набира.'),
-            subtitle: Text("Правнук, внук"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Аблагари, Аблаги.'),
-            subtitle: Text("Глупость, дурость."),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Абла.'),
-            subtitle: Text("Глупый, бестольковый."),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            leading: CircleAvatar(child: Text('Б')),
-          ),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            leading: CircleAvatar(child: Text('В')),
-          ),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Слова'),
-            subtitle: Text("Превод"),
-            trailing: Icon(Icons.favorite_rounded),
-            isThreeLine: true,
-          ),
-          Divider(height: 0),
-          ListTile(
-            leading: CircleAvatar(child: Text('Г')),
-          ),
 
-          Divider(height: 0),
-          ListTile(
-            leading: CircleAvatar(child: Text('Д')),
-          ),
         ],
+      ),
+    );
+  }
+}
+
+
+                                    //  Cтраница Памирские языки
+
+class PamirLanguage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Памирские Языки'),
+      ),
+      body: Center(
+        child: Text('Привет, это другое окно!'),
+      ),
+    );
+  }
+}
+
+                                   // Открыть страница Алфавит
+
+class Alphabet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Алфавит'),
+      ),
+      body: Center(
+        child: Text('Привет, это другое окно!'),
       ),
     );
   }
