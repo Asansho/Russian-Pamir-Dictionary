@@ -42,9 +42,9 @@ class DictionaryHomePage extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: NetworkImage('https://storage.theoryandpractice.ru/tnp/uploads/image_block/000/063/747/image/base_692b890d23.jpg'),
-                    fit: BoxFit.cover,
+                image: const DecorationImage(
+                  image: NetworkImage('https://s3.envato.com/files/243311193/2T4A7742.jpg'),
+                  fit: BoxFit.cover,
                 ),
                 color: Colors.blue,
               ),
@@ -63,7 +63,8 @@ class DictionaryHomePage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PamirLanguage()),    // Открыть страницу Памирские языки
+                  MaterialPageRoute(builder: (context) =>
+                      PamirLanguage()), // Открыть страницу Памирские языки
                 );
               },
             ),
@@ -74,7 +75,8 @@ class DictionaryHomePage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Alphabet()),    // Открыть страница Алфавит
+                  MaterialPageRoute(builder: (context) =>
+                      Alphabet()), // Открыть страница Алфавит
                 );
               },
             ),
@@ -88,20 +90,15 @@ class DictionaryHomePage extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.search),
-              title: Text('Поиск'),
-              iconColor: Colors.blue,
-              onTap: () {
-
-                // Открыть страницу поиска
-              },
-            ),
-            ListTile(
                 leading: Icon(Icons.settings),
                 iconColor: Colors.blue,
                 title: Text('Настройки'),
                 onTap: () {
-                  // Открыть страницу настроек
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>
+                        setting()), // Открыть страницу настройка
+                  );
                 }
             ),
             ListTile(
@@ -112,6 +109,7 @@ class DictionaryHomePage extends StatelessWidget {
                 // Оценит приложение
               },
             ),
+
             Divider(height: 0),
           ],
         ),
@@ -120,37 +118,41 @@ class DictionaryHomePage extends StatelessWidget {
 
       //Список Слова
 
-      body: ListView(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              scrolledUnderElevation: 500.0,
+              titleSpacing: 15.0,
+              backgroundColor: Colors.transparent,
 
-        children: const <Widget>[
-
-          ListTile(
-            leading: CircleAvatar(child: Text('A')),
-          ),
-          ListTile(
-            title: Text('Абади, кори абади.'),
-            subtitle: Text("Вечный , вечное дело"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('А баченб, а бачо. А бачен тама нан качад? '),
-            subtitle: Text("Ребята, дети. Ребята где ваша мама?"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-          Divider(height: 0),
-          ListTile(
-            title: Text('Абаш'),
-            subtitle: Text("Чернокожий"),
-            trailing: Icon(Icons.favorite_rounded),
-          ),
-
-        ],
+              title: SearchAnchor.bar(
+                suggestionsBuilder:
+                    (BuildContext context, SearchController controller) {
+                  return List<Widget>.generate(
+                    5,
+                        (int index) {
+                      return ListTile(
+                        titleAlignment: ListTileTitleAlignment.center,
+                        title: Text('Fkj $index'),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
+
     );
   }
 }
 
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
 
                                     //  Cтраница Памирские языки
 
@@ -159,14 +161,45 @@ class PamirLanguage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightBlueAccent.shade400,
         title: Text('Памирские Языки'),
       ),
-      body: Center(
-        child: Text('Привет, это другое окно!'),
+      body: ListView(
+
+        children: const <Widget>[
+
+          ListTile(
+            leading: Icon(Icons.book) ,
+            title: Text('Шугнанский Язык.',  style:TextStyle (fontSize: 20),),
+            subtitle: Text("Шугна́нский язы́к (шугн. хуг̌ну̊н зив, хуг̌ну̊нӣ; xuγ̌nůn ziv, xuγ̌nůnī или xuγnöne zev[1][2], тадж. забони шуғнонӣ[3][4]) — язык шугнанцев. Относится к памирским языкам, подгруппе иранских языков. Распространён в исторической области Шугнан: в Горно-Бадахшанской АО Таджикистана и в провинции Бадахшан Афганистана. Есть несколько диалектов, в том числе баджувский и шахдаринский. Ближайшими родственниками шугнанского являются рушанский, хуфский, бартангский, рошорвский и сарыкольский языки. Англоязычная академическая традиция считает эти языки диалектами шугнанскогоПерейти к разделу «Лингвогеография». "
+                "Вследствие географического соседства и относительного родства, шугнанский испытал значительное влияние таджикского языка, заметное в фонетике, грамматике и лексике ..."),
+          ),
+
+
+          Divider(height: 0),
+          ListTile(
+            leading: Icon(Icons.book),
+            title: Text('Рушанский Язык  ' ,  style:TextStyle (fontSize: 20),),
+            subtitle: Text("До конца XX века рушанский язык являлся бесписьменным. В начале 1990-х годов был разработан рушанский алфавит на основе кириллицы, ..."),
+          ),
+          Divider(height: 0),
+          ListTile(
+            leading: Icon(Icons.book),
+            title: Text('Ваханский язык'  ,  style:TextStyle (fontSize: 20),
+            ),
+            subtitle: Text("Ваха́нский язы́к — язык ваханцев, одного из памирских народов. Распространён в качестве языка бытового общения на границе между Таджикистаном и Афганистаном по верхнему течению реки Пяндж "
+                "(на территории исторической провинции Вахан), в северных районах Пакистана и в китайской части Восточного Памира (Синьцзян-Уйгурский автономный район). "),
+          ),
+        ],
       ),
     );
   }
 }
+
+
+
+
+////////////////////////////////////////  Алфавит  /////////////////////////////////////////////
 
                                    // Открыть страница Алфавит
 
@@ -175,16 +208,67 @@ class Alphabet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightBlueAccent.shade400,
         title: Text('Алфавит'),
       ),
+      body: ListView(
+
+        children: const <Widget>[
+
+          ListTile(
+            leading: CircleAvatar(child: Text('A')),
+          ),
+          Divider(height:0),
+          ListTile(
+            leading: CircleAvatar(child: Text('А̄')),
+          ),
+          Divider(height:0),
+          ListTile(
+            leading: CircleAvatar(child: Text('Б')),
+          ),
+          Divider(height:0),
+          ListTile(
+            leading: CircleAvatar(child: Text('А̄')),
+          ),
+          Divider(height:0),
+          ListTile(
+            leading: CircleAvatar(child: Text('А̄')),
+          ),
+          Divider(height:0),
+          ListTile(
+            leading: CircleAvatar(child: Text('А̄')),
+          ),
+          Divider(height:0),
+          ListTile(
+            leading: CircleAvatar(child: Text('А̄')),
+          ),
+
+        ],
+      ),
+
+
+    );
+  }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+
+                               // Открыть страницу настройка
+
+class setting extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Настройка'),
+      ),
       body: Center(
-        child: Text('Привет, это другое окно!'),
+        child: Text('Привет Мир'),
       ),
     );
   }
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////
 
 
 
